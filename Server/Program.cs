@@ -183,6 +183,19 @@ namespace Server
 
         static void Main(string[] args)
         {
+            //Тут нужно написать логин, пароль и путь
+            Users.Add(new User("тут", "тут", @"тут"));
+            Console.Write("Введите IP адрес сервера: ");
+            string sIpAdress = Console.ReadLine();
+            Console.Write("Введите порт: ");
+            string sPort = Console.ReadLine();
+            if(int.TryParse(sPort, out Port) && IPAddress.TryParse(sIpAdress, out IpAdress))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Данные успешно введены. Запускаю сервер.");
+                StartServer();
+            }
+            Console.Read();
         }
     }
 }
